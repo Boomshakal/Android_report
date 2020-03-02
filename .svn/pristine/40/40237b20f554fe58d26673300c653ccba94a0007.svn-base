@@ -1,0 +1,74 @@
+package com.megmeet.megmeetreport.util;
+
+import android.util.Log;
+
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.util.Enumeration;
+
+public class InformationUtils {
+    private static InformationUtils informationUtils;
+
+    private InformationUtils() {
+
+    }
+
+    public static InformationUtils getInformationUtils() {
+        if(informationUtils == null) {
+            informationUtils = new InformationUtils();
+        }
+        return informationUtils;
+    }
+    /**
+     * 获取设备的MAC地址
+     */
+    public String getMacAddress() {
+        String strMacAddr = null;
+        InetAddress localInetAddress = getLocalInetAddress();
+        try {
+            byte[] hardwareAddress = NetworkInterface.getByInetAddress(localInetAddress).getHardwareAddress();
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < hardwareAddress.length; i++) {
+                if (i != 0) {
+                    stringBuffer.append(":");
+                }
+                String str = Integer.toHexString(hardwareAddress[i] & 0xFF);
+                stringBuffer.append(str.length() == 1 ? 0 + str : str);
+            }
+            strMacAddr = stringBuffer.toString().toUpperCase();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        return strMacAddr;
+    }
+
+    /**
+     * 获取设备的IP地址
+     */
+    protected InetAddress getLocalInetAddress() {
+        InetAddress ip = null;
+
+        try {
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            while (networkInterfaces.hasMoreElements()) {      //判断是否还有元素
+                NetworkInterface networkInterface = networkInterfaces.nextElement();
+                Enumeration<InetAddress> inetAddresses = networkInterface.getInetAddresses();
+                while (inetAddresses.hasMoreElements()) {
+                    ip = inetAddresses.nextElement();
+                    if (!ip.isLoopbackAddress() && ip.getHostAddress().indexOf(":") == -1) {
+                        break;
+                    } else {
+                        ip = null;
+                    }
+                    if (ip != null) {
+                        break;
+                    }
+                }
+            }
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        return ip;
+    }
+}

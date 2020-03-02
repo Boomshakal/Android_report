@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">MegmeetReport</string>
+
+    <string name="task_order_code">生产任务</string>
+    <string name="frm_login_lang">语言</string>
+    <string name="frm_login_net">网络</string>
+    <string name="frm_login_net_lan">内网</string>
+    <string name="frm_login_net_wan">外网</string>
+    <string name="frm_login_port">端口</string>
+    <string name="frm_seq_code">工序</string>
+    <string name="frm_login_user">用户</string>
+    <string name="frm_work_line">线体</string>
+    <string name="frm_login_pwd">密码</string>
+    <string name="frm_login_remember">记住登录</string>
+    <string name="frm_login_dynsoft">深圳市华讯软件技术有限公司</string>
+    <string name="frm_login_logining">正在登录</string>
+    <string name="frm_login_lang_selector">选择语言</string>
+    <string name="frm_login_net_selector">选择网络</string>
+    <string name="frm_login_book_selector">选择账套</string>
+    <string name="frm_login_cancel">取消</string>
+    <string name="frm_login_miss_network">请选择网络</string>
+    <string name="frm_login_miss_server">请输入服务器</string>
+    <string name="frm_login_miss_port">请输入端口</string>
+    <string name="frm_login_miss_book">请选择账套</string>
+    <string name="frm_login_miss_user">请输入用户名</string>
+    <string name="load_footer_text">更多...</string>
+
+</resources>

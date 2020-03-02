@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_line_editable">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                style="@style/line_label"
+                android:id="@+id/lblServer"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/task_order_code" />
+
+            <EditText
+                android:id="@+id/txtServer"
+                android:layout_width="432dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/bg_textbox_editable"
+                android:layout_gravity="center_vertical"
+                style="@style/line_text_box">
+                <requestFocus />
+            </EditText>
+
+            <ImageButton
+                android:visibility="invisible"
+                android:id="@+id/btn_task_order_code"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="#FFFFFF"
+                android:scaleType="fitCenter"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/img_remove"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
